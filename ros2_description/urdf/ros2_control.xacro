@@ -1,0 +1,40 @@
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="sarsora_robot">
+
+    <gazebo>
+        <xacro:unless value="$(arg is_ignition)">
+
+            <!-- Native Gazebo Diff Drive - controls wheels directly -->
+            <plugin filename="gz-sim-diff-drive-system"
+                    name="gz::sim::systems::DiffDrive">
+                <left_joint>wheel_left_joint</left_joint>
+                <right_joint>wheel_right_joint</right_joint>
+                <wheel_separation>0.17</wheel_separation>
+                <wheel_radius>0.033</wheel_radius>
+                <odom_publish_frequency>50</odom_publish_frequency>
+                <topic>/model/sarsora_robot/cmd_vel</topic>
+                <odom_topic>/model/sarsora_robot/odom</odom_topic>
+                <frame_id>odom</frame_id>
+                <child_frame_id>base_footprint</child_frame_id>
+                <publish_odom>true</publish_odom>
+                <publish_odom_tf>true</publish_odom_tf>
+                <publish_wheel_tf>false</publish_wheel_tf>
+            </plugin>
+
+            <!-- IMU sensor system -->
+            <plugin filename="gz-sim-imu-system"
+                    name="gz::sim::systems::Imu"/>
+
+            <!-- Sensor rendering -->
+            <plugin filename="gz-sim-sensors-system"
+                    name="gz::sim::systems::Sensors">
+                <render_engine>ogre2</render_engine>
+            </plugin>
+
+            <!-- Scene broadcaster -->
+            <plugin filename="gz-sim-scene-broadcaster-system"
+                    name="gz::sim::systems::SceneBroadcaster"/>
+
+        </xacro:unless>
+    </gazebo>
+
+</robot>

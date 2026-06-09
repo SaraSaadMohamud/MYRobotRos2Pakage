@@ -1,0 +1,13 @@
+<class_libraries>
+	<library path="Dijkstra_planning">
+		<class type="robot_planning::DijkstraPlanner" base_class_type="nav2_core::GlobalPlanner">
+		  <description>Simple Dijkstra Planner.</description>
+		</class>
+	</library>
+
+	<library path="AStar_planning">
+		<class type="robot_planning::AStarPlanner" base_class_type="nav2_core::GlobalPlanner">
+		  <description>Simple AStar Planner.</description>
+		</class>
+	</library>
+</class_libraries>

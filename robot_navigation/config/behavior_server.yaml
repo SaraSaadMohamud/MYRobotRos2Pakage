@@ -1,0 +1,23 @@
+behavior_server:
+  ros__parameters:
+    costmap_topic: local_costmap/costmap_raw
+    footprint_topic: local_costmap/published_footprint
+    cycle_frequency: 10.0
+    behavior_plugins: ["spin","backup","wait"]
+    global_frame: odom
+    robot_base_frame: base_footprint
+    transform_tolerance: 0.3
+    use_sim_time: true
+    simulate_ahead_time: 2.0
+    max_rotational_velocity: 1.0
+    min_rotational_velocity: 0.4
+    rotational_acc_limit: 3.2
+
+    spin:
+      plugin: "nav2_behaviors::Spin"
+
+    backup:
+      plugin: "nav2_behaviors::BackUp"
+
+    wait:
+      plugin: "nav2_behaviors::Wait"

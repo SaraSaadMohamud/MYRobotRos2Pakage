@@ -1,0 +1,12 @@
+<class_libraries>
+	<library path="pd_motion_planner">
+		<class type="robot_motion::PDMotionPlanner" base_class_type="nav2_core::Controller">
+		  <description>Simple Dijkstra Planner.</description>
+		</class>
+	</library>
+	<library path="PurePursuit">
+		<class type="robot_motion::PurePursuit" base_class_type="nav2_core::Controller">
+		  <description>Simple Dijkstra Planner.</description>
+		</class>
+	</library>
+</class_libraries>
